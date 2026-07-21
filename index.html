@@ -3,11 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- 검색 결과와 링크 미리보기에 표시되는 기본 정보입니다. -->
     <meta
       name="description"
-      content="Pooreunhaneul (Pooha) Choi — undergraduate student at KAIST interested in K-Theory, Algebraic Geometry, and Complex Geometry."
+      content="Pooreunhaneul (Pooha) Choi - undergraduate student at KAIST interested in K-Theory, Algebraic Geometry, and Complex Geometry."
     />
-    <meta name="theme-color" content="#071727" />
+    <meta name="theme-color" content="#142330" />
     <meta property="og:title" content="Pooha Choi" />
     <meta
       property="og:description"
@@ -22,24 +24,32 @@
     <meta property="og:image:width" content="1731" />
     <meta property="og:image:height" content="909" />
     <meta name="twitter:card" content="summary_large_image" />
-    <title>Pooha Choi · Mathematics</title>
+
+    <!-- 브라우저 탭에 보이는 제목입니다. -->
+    <title>Pooha Choi - Mathematics</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
+    <!--
+      HERO / 첫 화면
+      배너를 바꾸려면 저장소의 pooha-riemann-roch-banner.jpg 파일을
+      같은 이름의 새 사진으로 교체하면 됩니다.
+    -->
     <header class="hero" id="top">
       <div class="hero__image-wrap" aria-hidden="true">
         <img
           class="hero__image"
           src="pooha-riemann-roch-banner.jpg"
           alt=""
-          width="2048"
-          height="681"
+          width="2610"
+          height="870"
         />
       </div>
       <div class="hero__shade" aria-hidden="true"></div>
 
+      <!-- 메뉴 이름과 href="#..."는 아래 section의 id와 연결됩니다. -->
       <nav class="nav shell" aria-label="Primary navigation">
         <a class="nav__brand" href="#top" aria-label="Pooha Choi, home">
           <span class="nav__mark" aria-hidden="true">P</span>
@@ -47,93 +57,93 @@
         </a>
         <div class="nav__links">
           <a href="#about">About</a>
-          <a href="#interests">Interests</a>
+          <a href="#interests">Research</a>
           <a href="#curriculum-vitae">CV</a>
-          <a class="nav__contact" href="#contact">Contact</a>
+          <a href="#contact">Contact</a>
         </div>
       </nav>
 
+      <!-- 이름과 소속을 수정할 때는 이 블록의 글자만 바꾸면 됩니다. -->
       <div class="hero__content shell">
         <p class="eyebrow">Mathematics · KAIST</p>
         <h1>Pooreunhaneul Choi</h1>
         <p class="hero__korean" lang="ko">최푸른하늘</p>
-        <p class="hero__lead">
-          Exploring the geometry behind structure, symmetry, and invariants.
-        </p>
-        <a class="text-link text-link--light" href="#about">
-          Discover my work <span aria-hidden="true">↓</span>
-        </a>
+        <p class="hero__lead">Undergraduate Student in Mathematics</p>
       </div>
     </header>
 
     <main id="main-content">
+      <!-- ABOUT / 자기소개 -->
       <section class="section section--intro shell" id="about">
-        <div class="section__label" aria-hidden="true">01 / About</div>
+        <div class="section__label">About</div>
         <div class="intro__copy">
-          <p class="section__kicker">Hello, I’m Pooha.</p>
-          <h2>I study mathematics at KAIST in Daejeon, South Korea.</h2>
+          <h2>About</h2>
           <div class="prose">
             <p>
-              My full name is Pooreunhaneul Choi. I know it is quite special
-              and a bit hard to pronounce, so please feel free to call me
-              whatever you like. Many of my friends call me Pooha.
+              I am currently an undergraduate student at KAIST in Daejeon,
+              South Korea. My full name is Pooreunhaneul Choi, and many of my
+              friends call me Pooha.
             </p>
             <p>
-              I am currently interested in K-Theory, along with Algebraic and
-              Complex Geometry.
+              My current mathematical interests include K-Theory, Algebraic
+              Geometry, and Complex Geometry.
             </p>
           </div>
         </div>
-        <aside class="intro__note" aria-label="At a glance">
-          <span class="intro__note-label">Currently</span>
-          <strong>Undergraduate student</strong>
-          <span>KAIST · Daejeon</span>
+        <aside class="intro__note" aria-label="Affiliation">
+          <span class="intro__note-label">Affiliation</span>
+          <strong>KAIST</strong>
+          <span>Daejeon, South Korea</span>
         </aside>
       </section>
 
+      <!--
+        RESEARCH INTERESTS / 연구 관심 분야
+        분야를 추가하려면 article 블록 하나를 복사한 뒤 제목과 설명을 바꾸세요.
+      -->
       <section class="section section--interests" id="interests">
         <div class="shell">
           <div class="section__heading-row">
             <div>
-              <p class="section__kicker">Research interests</p>
-              <h2>Questions I’m drawn to.</h2>
+              <p class="section__kicker">Research</p>
+              <h2>Research Interests</h2>
             </div>
-            <p class="section__number" aria-hidden="true">02</p>
           </div>
 
           <div class="interest-grid">
-            <article class="interest-card interest-card--featured">
+            <article class="interest-card">
               <span class="interest-card__index">01</span>
               <h3>K-Theory</h3>
               <p>
-                Studying mathematical objects through the invariants and
-                structures that connect topology, algebra, and geometry.
+                K-Theory and its interactions with topology, algebra, and
+                geometry.
               </p>
             </article>
             <article class="interest-card">
               <span class="interest-card__index">02</span>
               <h3>Algebraic Geometry</h3>
-              <p>
-                Exploring geometric spaces through polynomial equations and
-                the algebraic structures beneath them.
-              </p>
+              <p>Geometric questions studied through algebraic structures.</p>
             </article>
             <article class="interest-card">
               <span class="interest-card__index">03</span>
               <h3>Complex Geometry</h3>
-              <p>
-                Investigating complex manifolds and the meeting point of
-                analysis, topology, and geometry.
-              </p>
+              <p>Complex manifolds and their geometric properties.</p>
             </article>
           </div>
         </div>
       </section>
 
+      <!--
+        CV / 이력서
+        새 CV를 올린 뒤 아래 두 href="..." 주소만 새 공유 링크로 교체하세요.
+      -->
       <section class="section section--cv shell" id="curriculum-vitae">
         <div class="cv__statement">
-          <p class="section__kicker">Curriculum vitae</p>
-          <h2>A concise record of my academic path.</h2>
+          <p class="section__kicker">Documents</p>
+          <h2>Curriculum Vitae</h2>
+          <p class="cv__description">
+            Academic background, activities, and related experience.
+          </p>
         </div>
         <div class="cv__actions">
           <a
@@ -142,28 +152,29 @@
             target="_blank"
             rel="noreferrer"
           >
-            View CV in English <span aria-hidden="true">↗</span>
+            CV · English <span aria-hidden="true">↗</span>
           </a>
           <a
-            class="button button--secondary"
+            class="button"
             href="https://drive.google.com/file/d/1PtTMFSr6KIk4_YIVM0VEaYd1vgGyAoTW/view?usp=drive_link"
             target="_blank"
             rel="noreferrer"
             lang="ko"
           >
-            한국어 CV 보기 <span aria-hidden="true">↗</span>
+            CV · 한국어 <span aria-hidden="true">↗</span>
           </a>
         </div>
       </section>
 
+      <!--
+        CONTACT / 연락처
+        이메일 변경 시 href의 mailto: 주소와 화면에 보이는 주소를 함께 바꾸세요.
+      -->
       <section class="contact" id="contact">
         <div class="contact__inner shell">
-          <p class="section__kicker section__kicker--light">Contact</p>
-          <h2>Let’s talk mathematics.</h2>
-          <p>
-            For academic conversations, questions, or introductions, email is
-            the best way to reach me.
-          </p>
+          <p class="section__kicker">Contact</p>
+          <h2>Contact</h2>
+          <p>For academic inquiries and correspondence:</p>
           <a class="contact__email" href="mailto:blue_sky@kaist.ac.kr">
             blue_sky@kaist.ac.kr <span aria-hidden="true">↗</span>
           </a>
@@ -171,6 +182,7 @@
       </section>
     </main>
 
+    <!-- 연도가 바뀌면 아래 2026만 수정하세요. -->
     <footer class="footer">
       <div class="footer__inner shell">
         <p>© 2026 Pooreunhaneul Choi</p>
