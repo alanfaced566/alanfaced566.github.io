@@ -44,3 +44,16 @@ HTML 파일 안에는 각 영역의 시작점마다 한국어 주석이 있습�
 - `styles.css`: 색상, 간격, 글자 크기, 모바일 화면
 - `pooha-riemann-roch-banner.jpg`: 메인 배너
 - `og-pooha-choi.png`: 카카오톡과 SNS 링크 미리보기 이미지
+- `robots.txt`: 검색 로봇의 방문을 허용하고 사이트맵 위치를 알려주는 파일
+- `sitemap.xml`: Google 등 검색 엔진에 홈페이지 주소를 알려주는 사이트맵
+- `404.html`: 잘못된 주소로 들어왔을 때 보이는 안내 페이지
+
+## Google 검색 노출
+
+홈페이지에는 `Pooreunhaneul Choi`, `Pooha Choi`, `최푸른하늘`을 연결하는
+검색용 메타데이터와 구조화 데이터가 들어 있습니다. 검색 노출은 즉시 시작되지 않으며,
+Google Search Console에서 `https://poohachoi.github.io/` 속성을 등록하고
+`sitemap.xml`을 제출하면 수집을 요청할 수 있습니다.
+
+검색 정보는 `index.html` 위쪽의 `검색 결과와 링크 미리보기` 및
+`구조화 데이터` 주석 아래에서 수정할 수 있습니다.

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://poohachoi.github.io/sitemap.xml
