@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bidhan Kumbhakar</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Arial,sans-serif;color:#222;background:#fff;font-size:15px;line-height:1.7;}
+a{color:#1a5276;text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* NAV */
+nav{background:#0d1b2a;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;}
+.nav-name{color:#fff;font-size:16px;font-weight:bold;padding:1rem 0;}
+nav ul{list-style:none;display:flex;flex-wrap:wrap;}
+nav ul li a{display:block;padding:1rem 0.8rem;color:rgba(255,255,255,0.85);font-size:13px;transition:color 0.2s;}
+nav ul li a:hover{color:#5dade2;text-decoration:none;}
+
+/* COVER */
+.cover{width:100%;height:280px;position:relative;overflow:hidden;background:#0d1b2a;}
+.cover-svg{position:absolute;inset:0;width:100%;height:100%;}
+
+/* HERO PROFILE - full image left side */
+.hero{display:flex;min-height:420px;}
+.hero-photo-col{width:340px;flex-shrink:0;position:relative;overflow:hidden;}
+.hero-photo-col img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.hero-info{flex:1;padding:2.5rem 2.5rem;background:#fff;display:flex;flex-direction:column;justify-content:center;border-bottom:3px solid #1a5276;}
+.hero-info h1{font-size:2rem;color:#0d1b2a;font-family:Georgia,serif;margin-bottom:0.3rem;}
+.hero-info .designation{font-size:15px;color:#555;margin-bottom:0.2rem;}
+.hero-info .institute{font-size:14px;color:#1a5276;margin-bottom:1rem;font-weight:bold;}
+.hero-info .contact-links{display:flex;flex-wrap:wrap;gap:0.8rem;font-size:13px;margin-bottom:1rem;}
+.hero-info .contact-links span{color:#333;}
+.hero-info .contact-links a{color:#1a5276;}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem;}
+.tag{background:#eaf3fb;color:#1a5276;border:1px solid #aed6f1;padding:3px 12px;border-radius:12px;font-size:12px;}
+.btn-row{display:flex;gap:0.8rem;flex-wrap:wrap;}
+.btn{background:#0d1b2a;color:#fff;padding:7px 18px;border-radius:4px;font-size:13px;display:inline-block;}
+.btn:hover{background:#1a5276;text-decoration:none;}
+.btn-outline{background:#fff;color:#0d1b2a;border:1.5px solid #0d1b2a;padding:6px 18px;border-radius:4px;font-size:13px;display:inline-block;}
+.btn-outline:hover{background:#eaf3fb;text-decoration:none;}
+
+/* SECTION */
+.section{max-width:1050px;margin:0 auto;padding:2.5rem 2rem;}
+.section-alt{background:#f8fafd;}
+.section-alt .section{max-width:1050px;margin:0 auto;}
+.section h2{font-size:1rem;color:#0d1b2a;border-bottom:2px solid #1a5276;padding-bottom:4px;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:1.5px;}
+
+/* RESEARCH GRID */
+.research-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.r-card{background:#fff;border:1px solid #d6eaf8;border-left:4px solid #1a5276;padding:1rem 1.2rem;}
+.r-card h3{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#1a5276;margin-bottom:5px;}
+.r-card p{font-size:14px;color:#333;}
+
+/* EDU */
+.edu-item{display:flex;gap:1.5rem;padding:0.8rem 0;border-bottom:1px solid #eee;align-items:flex-start;}
+.edu-year{font-size:13px;color:#888;min-width:110px;padding-top:2px;}
+.edu-body h3{font-size:14px;font-weight:bold;color:#0d1b2a;margin-bottom:1px;}
+.edu-body .uni{font-size:13px;color:#1a5276;}
+.edu-body .thesis{font-size:13px;color:#666;font-style:italic;margin-top:2px;}
+
+/* PUBLICATIONS */
+.pub-item{padding:1rem 0;border-bottom:1px solid #eee;display:flex;gap:1rem;}
+.pub-item:last-child{border:none;}
+.pub-num{font-size:13px;font-weight:bold;color:#1a5276;min-width:28px;}
+.pub-body{}
+.pub-title{font-size:14px;font-weight:bold;color:#0d1b2a;line-height:1.4;margin-bottom:3px;}
+.pub-authors{font-size:13px;color:#555;margin-bottom:2px;}
+.pub-journal{font-size:13px;font-style:italic;color:#1a5276;}
+.pub-badges{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px;}
+.badge{font-size:11px;padding:2px 8px;border-radius:10px;}
+.bg{background:#fef9e7;color:#9a6d0a;border:1px solid #f0c040;}
+.bt{background:#e8f8f5;color:#0e6655;border:1px solid #48c9b0;}
+.bb{background:#eaf3fb;color:#1a5276;border:1px solid #7fb3d3;}
+
+/* AWARDS */
+.award-item{display:flex;gap:1.2rem;padding:0.8rem 0;border-bottom:1px solid #eee;align-items:flex-start;}
+.award-icon{font-size:22px;min-width:32px;}
+.award-body h3{font-size:14px;font-weight:bold;color:#0d1b2a;margin-bottom:2px;}
+.award-body p{font-size:13px;color:#666;}
+
+/* QUALS */
+.qual-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem;}
+.qual-card{background:#fff;border:1px solid #d6eaf8;padding:1rem;border-top:4px solid #1a5276;border-radius:0 0 4px 4px;}
+.qual-card h3{font-size:15px;font-weight:bold;color:#0d1b2a;margin-bottom:4px;}
+.qual-score{font-size:13px;color:#1a5276;font-weight:bold;}
+.qual-year{font-size:12px;color:#999;margin-top:2px;}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;}
+.skill-card{border:1px solid #ddd;padding:1rem;}
+.skill-card h3{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#1a5276;margin-bottom:0.6rem;border-bottom:1px solid #eee;padding-bottom:5px;}
+.skill-row{display:flex;justify-content:space-between;font-size:13px;padding:4px 0;border-bottom:1px dotted #f0f0f0;}
+.skill-row:last-child{border:none;}
+.level{font-size:11px;color:#888;}
+
+/* CONF */
+.conf-item{padding:0.8rem 0;border-bottom:1px solid #eee;padding-left:1rem;border-left:3px solid #d6eaf8;margin-bottom:0.5rem;}
+.conf-name{font-size:14px;font-weight:bold;color:#0d1b2a;}
+.conf-loc{font-size:13px;color:#888;}
+.conf-pres{font-size:13px;color:#1a5276;font-style:italic;margin-top:2px;}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;}
+.contact-card{background:#fff;border:1px solid #d6eaf8;border-left:4px solid #1a5276;padding:1rem 1.2rem;}
+.contact-card h3{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#1a5276;margin-bottom:0.5rem;}
+.contact-card p{font-size:14px;color:#333;line-height:1.8;}
+
+footer{background:#0d1b2a;color:rgba(255,255,255,0.65);text-align:center;padding:1.5rem;font-size:13px;margin-top:0;}
+footer a{color:rgba(255,255,255,0.75);}
+
+@media(max-width:700px){
+  .hero{flex-direction:column;}
+  .hero-photo-col{width:100%;height:300px;}
+  .research-grid{grid-template-columns:1fr;}
+  nav ul li a{padding:0.6rem 0.4rem;font-size:11px;}
+  .cover{height:180px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Bidhan Kumbhakar</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#conferences">Conferences</a></li>
+    <li><a href="#qualifications">Qualifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- COVER: COF structure + paper TOC collage -->
+<div class="cover">
+<svg class="cover-svg" viewBox="0 0 1400 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <pattern id="hex" x="0" y="0" width="80" height="92" patternUnits="userSpaceOnUse">
+      <polygon points="40,4 76,24 76,68 40,88 4,68 4,24" fill="none" stroke="#2e86c1" stroke-width="1.2" opacity="0.35"/>
+    </pattern>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0d1b2a"/>
+      <stop offset="50%" stop-color="#0a3d62"/>
+      <stop offset="100%" stop-color="#1a5276"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="280" fill="url(#bg)"/>
+  <rect width="1400" height="280" fill="url(#hex)"/>
+
+  <!-- COF node dots -->
+  <g fill="#5dade2" opacity="0.5">
+    <circle cx="40" cy="46" r="4"/><circle cx="120" cy="46" r="4"/><circle cx="200" cy="46" r="4"/>
+    <circle cx="280" cy="46" r="4"/><circle cx="360" cy="46" r="4"/><circle cx="440" cy="46" r="4"/>
+    <circle cx="520" cy="46" r="4"/><circle cx="600" cy="46" r="4"/><circle cx="680" cy="46" r="4"/>
+    <circle cx="760" cy="46" r="4"/><circle cx="840" cy="46" r="4"/><circle cx="920" cy="46" r="4"/>
+    <circle cx="1000" cy="46" r="4"/><circle cx="1080" cy="46" r="4"/><circle cx="1160" cy="46" r="4"/>
+    <circle cx="1240" cy="46" r="4"/><circle cx="1320" cy="46" r="4"/>
+    <circle cx="80" cy="138" r="4"/><circle cx="160" cy="138" r="4"/><circle cx="240" cy="138" r="4"/>
+    <circle cx="320" cy="138" r="4"/><circle cx="400" cy="138" r="4"/><circle cx="480" cy="138" r="4"/>
+    <circle cx="560" cy="138" r="4"/><circle cx="640" cy="138" r="4"/><circle cx="720" cy="138" r="4"/>
+    <circle cx="800" cy="138" r="4"/><circle cx="880" cy="138" r="4"/><circle cx="960" cy="138" r="4"/>
+    <circle cx="1040" cy="138" r="4"/><circle cx="1120" cy="138" r="4"/><circle cx="1200" cy="138" r="4"/>
+    <circle cx="1280" cy="138" r="4"/><circle cx="1360" cy="138" r="4"/>
+    <circle cx="40" cy="230" r="4"/><circle cx="120" cy="230" r="4"/><circle cx="200" cy="230" r="4"/>
+    <circle cx="280" cy="230" r="4"/><circle cx="360" cy="230" r="4"/><circle cx="440" cy="230" r="4"/>
+    <circle cx="520" cy="230" r="4"/><circle cx="600" cy="230" r="4"/><circle cx="680" cy="230" r="4"/>
+    <circle cx="760" cy="230" r="4"/><circle cx="840" cy="230" r="4"/><circle cx="920" cy="230" r="4"/>
+    <circle cx="1000" cy="230" r="4"/><circle cx="1080" cy="230" r="4"/>
+  </g>
+
+  <!-- Paper TOC placeholders as styled cards -->
+  <g opacity="0.82">
+    <!-- JACS paper card -->
+    <rect x="60" y="30" width="145" height="100" rx="4" fill="#1a3a5c" stroke="#5dade2" stroke-width="1"/>
+    <rect x="60" y="30" width="145" height="22" rx="4" fill="#2e86c1"/>
+    <text x="132" y="46" font-family="Arial" font-size="9" fill="white" text-anchor="middle" font-weight="bold">JACS 2026</text>
+    <!-- mini COF structure inside -->
+    <polygon points="132,70 148,79 148,97 132,106 116,97 116,79" fill="none" stroke="#5dade2" stroke-width="1.5"/>
+    <circle cx="132" cy="70" r="3" fill="#5dade2"/><circle cx="148" cy="79" r="3" fill="#5dade2"/>
+    <circle cx="148" cy="97" r="3" fill="#5dade2"/><circle cx="132" cy="106" r="3" fill="#5dade2"/>
+    <circle cx="116" cy="97" r="3" fill="#5dade2"/><circle cx="116" cy="79" r="3" fill="#5dade2"/>
+    <text x="132" y="122" font-family="Arial" font-size="7.5" fill="#aed6f1" text-anchor="middle">ORR · Vinylene-linked COF</text>
+
+    <!-- Small 2026 paper -->
+    <rect x="230" y="50" width="130" height="90" rx="4" fill="#1a3a5c" stroke="#48c9b0" stroke-width="1"/>
+    <rect x="230" y="50" width="130" height="20" rx="4" fill="#0e6655"/>
+    <text x="295" y="64" font-family="Arial" font-size="9" fill="white" text-anchor="middle" font-weight="bold">Small 2025</text>
+    <circle cx="295" cy="98" r="18" fill="none" stroke="#48c9b0" stroke-width="1.5"/>
+    <circle cx="295" cy="98" r="10" fill="#0e6655" opacity="0.7"/>
+    <text x="295" y="102" font-family="Arial" font-size="7" fill="white" text-anchor="middle">Mo₂</text>
+    <text x="295" y="130" font-family="Arial" font-size="7.5" fill="#9fdfcf" text-anchor="middle">H₂O₂ Generation</text>
+
+    <!-- Chem Commun -->
+    <rect x="385" y="35" width="130" height="95" rx="4" fill="#1a3a5c" stroke="#f39c12" stroke-width="1"/>
+    <rect x="385" y="35" width="130" height="20" rx="4" fill="#b7770d"/>
+    <text x="450" y="49" font-family="Arial" font-size="9" fill="white" text-anchor="middle" font-weight="bold">Chem. Commun. 2025</text>
+    <line x1="405" y1="75" x2="420" y2="88" stroke="#f39c12" stroke-width="1.5"/>
+    <line x1="420" y1="88" x2="440" y2="80" stroke="#f39c12" stroke-width="1.5"/>
+    <line x1="440" y1="80" x2="460" y2="92" stroke="#f39c12" stroke-width="1.5"/>
+    <line x1="460" y1="92" x2="480" y2="78" stroke="#f39c12" stroke-width="1.5"/>
+    <line x1="480" y1="78" x2="495" y2="88" stroke="#f39c12" stroke-width="1.5"/>
+    <text x="450" y="118" font-family="Arial" font-size="7.5" fill="#f9d79a" text-anchor="middle">Donor-functionalized COFs</text>
+
+    <!-- Adv Materials -->
+    <rect x="540" y="50" width="130" height="90" rx="4" fill="#1a3a5c" stroke="#9b59b6" stroke-width="1"/>
+    <rect x="540" y="50" width="130" height="20" rx="4" fill="#6c3483"/>
+    <text x="605" y="64" font-family="Arial" font-size="9" fill="white" text-anchor="middle" font-weight="bold">Adv. Materials 2025</text>
+    <rect x="558" y="80" width="22" height="30" rx="2" fill="#9b59b6" opacity="0.7"/>
+    <rect x="585" y="72" width="22" height="38" rx="2" fill="#8e44ad" opacity="0.8"/>
+    <rect x="612" y="85" width="22" height="25" rx="2" fill="#76448a" opacity="0.7"/>
+    <text x="605" y="130" font-family="Arial" font-size="7.5" fill="#d7bde2" text-anchor="middle">COFs for Photocatalysis</text>
+
+    <!-- ACS Mat Letters -->
+    <rect x="695" y="30" width="130" height="100" rx="4" fill="#1a3a5c" stroke="#e74c3c" stroke-width="1"/>
+    <rect x="695" y="30" width="130" height="20" rx="4" fill="#922b21"/>
+    <text x="760" y="44" font-family="Arial" font-size="9" fill="white" text-anchor="middle" font-weight="bold">ACS Mat. Lett. 2024</text>
+    <circle cx="760" cy="85" r="25" fill="none" stroke="#e74c3c" stroke-width="1.2"/>
+    <circle cx="760" cy="85" r="15" fill="none" stroke="#f1948a" stroke-width="1"/>
+    <circle cx="760" cy="85" r="6" fill="#e74c3c" opacity="0.8"/>
+    <text x="760" y="122" font-family="Arial" font-size="7.5" fill="#f1948a" text-anchor="middle">H₂O₂ Generation Review</text>
+
+    <!-- Angew Chem -->
+    <rect x="850" y="45" width="130" height="95" rx="4" fill="#1a3a5c" stroke="#1abc9c" stroke-width="1"/>
+    <rect x="850" y="45" width="130" height="20" rx="4" fill="#0e8172"/>
+    <text x="915" y="59" font-family="Arial" font-size="9" fill="white" text-anchor="middle" font-weight="bold">Angew. Chem. 2023</text>
+    <rect x="870" y="78" width="90" height="8" rx="2" fill="#1abc9c" opacity="0.6"/>
+    <rect x="870" y="92" width="70" height="8" rx="2" fill="#1abc9c" opacity="0.4"/>
+    <rect x="870" y="106" width="80" height="8" rx="2" fill="#1abc9c" opacity="0.5"/>
+    <text x="915" y="130" font-family="Arial" font-size="7.5" fill="#a2d9ce" text-anchor="middle">Li–S Batteries · COF</text>
+
+    <!-- ACS AEM -->
+    <rect x="1005" y="30" width="130" height="100" rx="4" fill="#1a3a5c" stroke="#e67e22" stroke-width="1"/>
+    <rect x="1005" y="30" width="130" height="20" rx="4" fill="#935116"/>
+    <text x="1070" y="44" font-family="Arial" font-size="9" fill="white" text-anchor="middle" font-weight="bold">ACS Appl. Energy 2023</text>
+    <polygon points="1070,65 1090,100 1050,100" fill="none" stroke="#e67e22" stroke-width="1.5"/>
+    <polygon points="1070,72 1084,97 1056,97" fill="#e67e22" opacity="0.3"/>
+    <text x="1070" y="118" font-family="Arial" font-size="7.5" fill="#f0b27a" text-anchor="middle">Supercapacitor · COF</text>
+
+    <!-- CGD -->
+    <rect x="1160" y="45" width="130" height="95" rx="4" fill="#1a3a5c" stroke="#3498db" stroke-width="1"/>
+    <rect x="1160" y="45" width="130" height="20" rx="4" fill="#1f618d"/>
+    <text x="1225" y="59" font-family="Arial" font-size="9" fill="white" text-anchor="middle" font-weight="bold">Cryst. Growth Des. 2023</text>
+    <polygon points="1225,78 1241,88 1241,108 1225,118 1209,108 1209,88" fill="none" stroke="#3498db" stroke-width="1.5"/>
+    <polygon points="1225,86 1236,92 1236,106 1225,112 1214,106 1214,92" fill="#3498db" opacity="0.25"/>
+    <text x="1225" y="132" font-family="Arial" font-size="7.5" fill="#85c1e9" text-anchor="middle">H₂ Evolution · COF</text>
+  </g>
+
+  <!-- Bottom text banner -->
+  <rect x="0" y="248" width="1400" height="32" fill="rgba(0,0,0,0.4)"/>
+  <text x="700" y="269" font-family="Arial" font-size="12" fill="rgba(255,255,255,0.75)" text-anchor="middle" letter-spacing="3">COVALENT ORGANIC FRAMEWORKS · PHOTOCATALYSIS · ELECTROCATALYSIS · ENERGY STORAGE</text>
+</svg>
+</div>
+
+<!-- HERO -->
+<div id="about" class="hero">
+  <div class="hero-photo-col">
+    <img src="data:image/jpeg;base64,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" alt="Bidhan Kumbhakar">
+  </div>
+  <div class="hero-info">
+    <h1>Bidhan Kumbhakar, M.Sc.</h1>
+    <div class="designation">Senior Research Fellow (Ph.D. Researcher)</div>
+    <div class="institute">S.N. Bose National Centre for Basic Sciences, Kolkata-700106, India</div>
+    <div class="contact-links">
+      <a href="mailto:bidhan.kumbhakar@bose.res.in">✉ bidhan.kumbhakar@bose.res.in</a>
+      <a href="mailto:bidhankumbhakar54@gmail.com">✉ bidhankumbhakar54@gmail.com</a>
+      <span>📞 +91-8967952468</span>
+    </div>
+    <div class="tags">
+      <span class="tag">Covalent Organic Frameworks</span>
+      <span class="tag">Photocatalysis</span>
+      <span class="tag">Electrocatalysis</span>
+      <span class="tag">Energy Storage</span>
+      <span class="tag">Porous Materials</span>
+      <span class="tag">RSC Affiliate Member</span>
+    </div>
+    <div class="btn-row">
+      <a class="btn" href="https://www.ecomlab.in" target="_blank">Ecom Lab</a>
+      <a class="btn" href="https://www.bose.res.in" target="_blank">SNBNCBS</a>
+      <a class="btn-outline" href="mailto:bidhan.kumbhakar@bose.res.in">Email Me</a>
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH -->
+<div class="section-alt"><div class="section">
+  <h2>Research Profile</h2>
+  <div class="research-grid">
+    <div class="r-card"><h3>Focus</h3><p>Design, synthesis, characterization, and catalytic application of functional porous organic materials with emphasis on Covalent Organic Frameworks (COFs).</p></div>
+    <div class="r-card"><h3>Current Ph.D. Work</h3><p>Functionalized Covalent Organic Frameworks for Energy Storage and Catalysis under Dr. Pradip Pachfule at SNBNCBS, Kolkata.</p></div>
+    <div class="r-card"><h3>Electrocatalysis</h3><p>Metal-embedded COFs for electrocatalytic applications including oxygen reduction reaction (ORR) and highly stable vinylene-linked COFs.</p></div>
+    <div class="r-card"><h3>Photocatalysis</h3><p>Donor-functionalized and dimolybdenum paddlewheel-embedded COFs for photocatalytic H₂O₂ generation and hydrogen evolution.</p></div>
+  </div>
+</div></div>
+
+<!-- EDUCATION -->
+<div class="section" id="education">
+  <h2>Education</h2>
+  <div class="edu-item"><div class="edu-year">2022 – Present</div><div class="edu-body"><h3>Ph.D. in Materials Science</h3><div class="uni">S.N. Bose National Centre for Basic Sciences, Kolkata</div><div class="thesis">Functionalized COFs for Energy Storage and Catalysis · Supervisor: Dr. Pradip Pachfule</div></div></div>
+  <div class="edu-item"><div class="edu-year">2019 – 2021</div><div class="edu-body"><h3>M.Sc. Chemistry — CGPA 8.58</h3><div class="uni">Pondicherry Central University</div><div class="thesis">OER using metal NHC complexes · Supervisor: Dr. S. Sabiah</div></div></div>
+  <div class="edu-item"><div class="edu-year">2016 – 2019</div><div class="edu-body"><h3>B.Sc. (Hons.) Chemistry — 65.12%</h3><div class="uni">Raghunathpur College, Sidho-Kanho-Birsha University</div></div></div>
+  <div class="edu-item"><div class="edu-year">2014 – 2016</div><div class="edu-body"><h3>Higher Secondary (Science) — 80.20%</h3><div class="uni">G.D. Lang Institution, W.B.C.H.S.E.</div></div></div>
+  <div class="edu-item"><div class="edu-year">2014</div><div class="edu-body"><h3>Secondary — 63.14%</h3><div class="uni">Manbhum Victoria Institution, Purulia, W.B.B.S.E.</div></div></div>
+</div>
+
+<!-- PUBLICATIONS -->
+<div class="section-alt"><div class="section" id="publications">
+  <h2>Publications</h2>
+  <div class="pub-item"><div class="pub-num">1.</div><div class="pub-body"><div class="pub-title">Vinylene-Linked Woven Covalent Organic Frameworks for the Oxygen Reduction Reaction</div><div class="pub-authors"><strong>Bidhan Kumbhakar</strong>; Sourav Ghosh; Uttam Pal; Taufique Ali; Ranjit Thapa; Pradip Pachfule.</div><div class="pub-journal">Journal of the American Chemical Society, 148(38), 41250–41259 (2026) · <a href="https://doi.org/10.1021/jacs.6c12376" target="_blank">DOI</a></div></div></div>
+  <div class="pub-item"><div class="pub-num">2.</div><div class="pub-body"><div class="pub-title">Palladium-Anchored Covalent Organic Framework for Cyclic Carbonate and One-Pot Oxazolidinone Synthesis</div><div class="pub-authors">Susmitha Kumar; Bipasha Banerjee; <strong>Bidhan Kumbhakar</strong>; et al.</div><div class="pub-journal">Nanoscale (2026) · <a href="https://doi.org/10.1039/D6NR03357A" target="_blank">DOI</a></div></div></div>
+  <div class="pub-item"><div class="pub-num">3.</div><div class="pub-body"><div class="pub-title">Highly Durable Superhydrophobic Activated Biochar Catalyst for Biodiesel Synthesis</div><div class="pub-authors">Arpita Das; Chandrakanta Guchhait; <strong>Bidhan Kumbhakar</strong>; et al.</div><div class="pub-journal">Journal of Materials Chemistry A, 14, 12908–12920 (2026) · <a href="https://doi.org/10.1039/D5TA08286B" target="_blank">DOI</a></div></div></div>
+  <div class="pub-item"><div class="pub-num">4.</div><div class="pub-body"><div class="pub-title">Silver Nanoparticles Embedded in COFs as Reusable Photocatalyst for Oxidative Coupling of Benzylic Amine</div><div class="pub-authors">Susmitha Kumar; <strong>Bidhan Kumbhakar</strong>; et al.</div><div class="pub-journal">ACS Applied Nano Materials, 8(25), 12946–12956 (2025) · <a href="https://doi.org/10.1021/acsanm.5c01423" target="_blank">DOI</a></div></div></div>
+  <div class="pub-item"><div class="pub-num">5.</div><div class="pub-body"><div class="pub-title">A Dimolybdenum Paddlewheel Embedded Covalent Organic Framework for Photocatalytic Hydrogen Peroxide Generation</div><div class="pub-authors"><strong>Bidhan Kumbhakar</strong>; Avanti Chakraborty; Uttam Pal; et al.; Pradip Pachfule.</div><div class="pub-journal">Small, 21(30), 2501823 (2025) · <a href="https://doi.org/10.1002/smll.202501823" target="_blank">DOI</a></div><div class="pub-badges"><span class="badge bg">Wiley-INYAS Special Collection 2024</span><span class="badge bt">Highlighted by DST &amp; PIB, Govt. of India</span></div></div></div>
+  <div class="pub-item"><div class="pub-num">6.</div><div class="pub-body"><div class="pub-title">Engineering Donor-Functionalized Covalent Organic Frameworks to Promote Photocatalytic Hydrogen Peroxide Generation</div><div class="pub-authors"><strong>Bidhan Kumbhakar</strong>; Uttam Pal; Avanti Chakraborty; et al.; Pradip Pachfule.</div><div class="pub-journal">Chemical Communications, 61, 15425–15428 (2025) · <a href="https://doi.org/10.1039/D5CC03985A" target="_blank">DOI</a></div><div class="pub-badges"><span class="badge bb">Themed Collection: Emerging Trends in Advanced Functional Porous Materials</span></div></div></div>
+  <div class="pub-item"><div class="pub-num">7.</div><div class="pub-body"><div class="pub-title">Covalent Organic Frameworks for Photocatalysis</div><div class="pub-authors">Bikash Mishra; Akhtar Alam; <strong>Bidhan Kumbhakar</strong>; et al.; Arne Thomas.</div><div class="pub-journal">Advanced Materials, 37, 2413118 (2025) · <a href="https://doi.org/10.1002/adma.202413118" target="_blank">DOI</a></div><div class="pub-badges"><span class="badge bg">Special Issue: 30 Years of Reticular Materials</span></div></div></div>
+  <div class="pub-item"><div class="pub-num">8.</div><div class="pub-body"><div class="pub-title">Covalent Organic Frameworks for Photocatalytic Hydrogen Peroxide Generation</div><div class="pub-authors">Akhtar Alam; <strong>Bidhan Kumbhakar</strong>; et al.; Pradip Pachfule.</div><div class="pub-journal">ACS Materials Letters, 6, 2007–2049 (2024) · <a href="https://doi.org/10.1021/acsmaterialslett.4c00418" target="_blank">DOI</a></div><div class="pub-badges"><span class="badge bt">Special Collection Highlights 2024 · Materials for Water Splitting</span></div></div></div>
+  <div class="pub-item"><div class="pub-num">9.</div><div class="pub-body"><div class="pub-title">Valorization of Bambusa striata Shavings into Functional Superparamagnetic Material for Biodiesel Production</div><div class="pub-authors">Arpita Das; <strong>Bidhan Kumbhakar</strong>; Pradip Pachfule; et al.</div><div class="pub-journal">Process Safety and Environmental Protection, 189, 894–910 (2024) · <a href="https://doi.org/10.1016/j.psep.2024.06.116" target="_blank">DOI</a></div></div></div>
+  <div class="pub-item"><div class="pub-num">10.</div><div class="pub-body"><div class="pub-title">Impact of the Crystallinity of Covalent Organic Frameworks on Photocatalytic Hydrogen Evolution</div><div class="pub-authors">Bikash Mishra; Akhtar Alam; <strong>Bidhan Kumbhakar</strong>; David Díaz Díaz; Pradip Pachfule.</div><div class="pub-journal">Crystal Growth &amp; Design, 23(6), 4701–4719 (2023) · <a href="https://doi.org/10.1021/acs.cgd.3c00379" target="_blank">DOI</a></div><div class="pub-badges"><span class="badge bb">Special Collection: Emerging Investigators in Crystal Engineering</span></div></div></div>
+  <div class="pub-item"><div class="pub-num">11.</div><div class="pub-body"><div class="pub-title">Dithiophenedione-Based Covalent Organic Frameworks for Supercapacitive Energy Storage</div><div class="pub-authors">Shuang Li; <strong>Bidhan Kumbhakar</strong>; Bikash Mishra; et al.; Arne Thomas; Pradip Pachfule.</div><div class="pub-journal">ACS Applied Energy Materials, 6(18), 9256–9263 (2023) · <a href="https://doi.org/10.1021/acsaem.3c01072" target="_blank">DOI</a></div></div></div>
+  <div class="pub-item"><div class="pub-num">12.</div><div class="pub-body"><div class="pub-title">A Thiazole-Linked Covalent Organic Framework for Lithium–Sulphur Batteries</div><div class="pub-authors">Rui Yan; Bikash Mishra; <strong>Bidhan Kumbhakar</strong>; et al.; Arne Thomas; Pradip Pachfule.</div><div class="pub-journal">Angewandte Chemie International Edition, 62, e202302276 (2023) · <a href="https://doi.org/10.1002/anie.202302276" target="_blank">DOI</a></div></div></div>
+</div></div>
+
+<!-- AWARDS -->
+<div class="section" id="awards">
+  <h2>Awards &amp; Fellowships</h2>
+  <div class="award-item"><div class="award-icon">🏆</div><div class="award-body"><h3>Best Oral Presentation — AMTSEF-25, University of North Bengal (2025)</h3><p>A Dimolybdenum Paddlewheel Embedded COF for Photocatalytic H₂O₂ Generation</p></div></div>
+  <div class="award-item"><div class="award-icon">🏆</div><div class="award-body"><h3>Best Oral Presentation — BOSE FEST 2024, SNBNCBS (2024)</h3><p>Dithiophenedione-Based COFs for Supercapacitive Energy Storage</p></div></div>
+  <div class="award-item"><div class="award-icon">🎓</div><div class="award-body"><h3>CSIR–UGC NET Junior Research Fellowship (JRF) — AIR: 40 (2021)</h3><p>Qualified national-level fellowship examination for research funding</p></div></div>
+  <div class="award-item"><div class="award-icon">🔬</div><div class="award-body"><h3>Affiliate Member, Royal Society of Chemistry (RSC) — Ongoing</h3><p>Affiliate member of the Royal Society of Chemistry, UK</p></div></div>
+</div>
+
+<!-- QUALIFICATIONS -->
+<div class="section-alt"><div class="section" id="qualifications">
+  <h2>National Examinations Qualified</h2>
+  <div class="qual-grid">
+    <div class="qual-card"><h3>UGC-NET (JRF)</h3><div class="qual-score">AIR: 40</div><div class="qual-year">June 2021 · Chemical Sciences</div></div>
+    <div class="qual-card"><h3>GATE</h3><div class="qual-score">AIR: 1464 · Score: 474</div><div class="qual-year">2022 · Chemistry</div></div>
+    <div class="qual-card"><h3>IIT JAM</h3><div class="qual-score">Qualified</div><div class="qual-year">Chemistry</div></div>
+    <div class="qual-card"><h3>WBSET (23rd)</h3><div class="qual-score">Appeared</div><div class="qual-year">2021 · State Eligibility Test</div></div>
+    <div class="qual-card"><h3>HCU-RET</h3><div class="qual-score">Selected for Ph.D.</div><div class="qual-year">2021 · Hyderabad Central University</div></div>
+  </div>
+</div></div>
+
+<!-- SKILLS -->
+<div class="section" id="skills">
+  <h2>Instrumental &amp; Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card"><h3>Characterization</h3>
+      <div class="skill-row"><span>PXRD (Rigaku)</span><span class="level">Expert</span></div>
+      <div class="skill-row"><span>FTIR (PerkinElmer)</span><span class="level">Expert</span></div>
+      <div class="skill-row"><span>NMR (SpinScan-X)</span><span class="level">Expert</span></div>
+      <div class="skill-row"><span>UV–Vis / DRS</span><span class="level">Expert</span></div>
+      <div class="skill-row"><span>TGA (PerkinElmer)</span><span class="level">Expert</span></div>
+      <div class="skill-row"><span>EPR Spectroscopy</span><span class="level">Expert</span></div>
+      <div class="skill-row"><span>XPS</span><span class="level">Expert</span></div>
+    </div>
+    <div class="skill-card"><h3>Microscopy &amp; Surface</h3>
+      <div class="skill-row"><span>FE-SEM (FEI Tecnai)</span><span class="level">Intermediate</span></div>
+      <div class="skill-row"><span>HR-TEM (FEI Tecnai)</span><span class="level">Basic</span></div>
+      <div class="skill-row"><span>BET / N₂ Sorption</span><span class="level">Intermediate</span></div>
+      <div class="skill-row"><span>AFM</span><span class="level">Intermediate</span></div>
+      <div class="skill-row"><span>Gas Chromatography</span><span class="level">Basic</span></div>
+    </div>
+    <div class="skill-card"><h3>Electrochemistry</h3>
+      <div class="skill-row"><span>Cyclic Voltammetry</span><span class="level">Expert</span></div>
+      <div class="skill-row"><span>EIS</span><span class="level">Expert</span></div>
+      <div class="skill-row"><span>GCD</span><span class="level">Expert</span></div>
+      <div class="skill-row"><span>Mott–Schottky Analysis</span><span class="level">Expert</span></div>
+      <div class="skill-row"><span>Photocurrent</span><span class="level">Expert</span></div>
+    </div>
+    <div class="skill-card"><h3>Software</h3>
+      <div class="skill-row"><span>OriginPro</span><span class="level">Expert</span></div>
+      <div class="skill-row"><span>ChemDraw</span><span class="level">Expert</span></div>
+      <div class="skill-row"><span>Adobe Illustrator / PS</span><span class="level">Expert</span></div>
+      <div class="skill-row"><span>VESTA / CrystalMaker</span><span class="level">Expert</span></div>
+      <div class="skill-row"><span>Materials Studio</span><span class="level">Expert</span></div>
+      <div class="skill-row"><span>Jana / FullProf</span><span class="level">Intermediate</span></div>
+      <div class="skill-row"><span>MestReNova / XPS Peak</span><span class="level">Expert</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONFERENCES -->
+<div class="section-alt"><div class="section" id="conferences">
+  <h2>Conferences, Schools &amp; Workshops</h2>
+  <div class="conf-item"><div class="conf-name">JACS Symposium Series: Celebrating 150 Years of JACS and IACS</div><div class="conf-loc">ACS Publications / IACS, Vivanta, Kolkata · July 1, 2026</div></div>
+  <div class="conf-item"><div class="conf-name">Metal–Organic Frameworks and Porous Organic Polymers for Energy and Sustainability</div><div class="conf-loc">JNCASR, India · Jan 12–15, 2026</div><div class="conf-pres">Poster: "A Dimolybdenum Paddlewheel Embedded COF for Photocatalytic H₂O₂ Generation"</div></div>
+  <div class="conf-item"><div class="conf-name">Advanced Materials &amp; Technologies for Sustainable Energy &amp; Future (AMTSEF-25)</div><div class="conf-loc">University of North Bengal · Sep 19–21, 2025</div><div class="conf-pres">🏆 Best Oral Presentation: "A Dimolybdenum Paddlewheel Embedded COF for Photocatalytic H₂O₂ Generation"</div></div>
+  <div class="conf-item"><div class="conf-name">BOSE FEST 2025</div><div class="conf-loc">SNBNCBS, Kolkata · Mar 12–15, 2025</div><div class="conf-pres">Poster: "A Dimolybdenum Paddlewheel Embedded COF for Photocatalytic H₂O₂ Generation"</div></div>
+  <div class="conf-item"><div class="conf-name">International Winter School on Frontiers in Materials Science</div><div class="conf-loc">JNCASR, Bengaluru · Dec 2–6, 2024</div><div class="conf-pres">Poster: "Dithiophenedione-Based COFs for Supercapacitive Energy Storage"</div></div>
+  <div class="conf-item"><div class="conf-name">9th International Conference on MOFs and Open Framework Compounds (MOF-2024)</div><div class="conf-loc">Suntec Singapore Convention Centre · Jul 14–19, 2024</div><div class="conf-pres">Poster: "Dithiophenedione-Based COFs for Supercapacitive Energy Storage"</div></div>
+  <div class="conf-item"><div class="conf-name">BOSE FEST 2024</div><div class="conf-loc">SNBNCBS, Kolkata · Feb 22–24, 2024</div><div class="conf-pres">🏆 Best Oral Presentation: "Dithiophenedione-Based COFs for Supercapacitive Energy Storage"</div></div>
+  <div class="conf-item"><div class="conf-name">School on Fundamental Crystallography and Rietveld Refinement (SFCWRRA–2023)</div><div class="conf-loc">NIT Rourkela, Odisha · Jul 10–14, 2023</div></div>
+  <div class="conf-item"><div class="conf-name">SAIS Symposium 2023</div><div class="conf-loc">IACS, Jadavpur, Kolkata · Feb 27–28, 2023</div></div>
+</div></div>
+
+<!-- CONTACT -->
+<div class="section" id="contact">
+  <h2>Contact</h2>
+  <div class="contact-grid">
+    <div class="contact-card"><h3>Address</h3><p>S.N. Bose National Centre for Basic Sciences<br>JD Block, Sector III, Salt Lake<br>Kolkata-700106, West Bengal, India</p></div>
+    <div class="contact-card"><h3>Email &amp; Phone</h3><p><a href="mailto:bidhan.kumbhakar@bose.res.in">bidhan.kumbhakar@bose.res.in</a><br><a href="mailto:bidhankumbhakar54@gmail.com">bidhankumbhakar54@gmail.com</a><br>+91-8967952468</p></div>
+    <div class="contact-card"><h3>Research Group</h3><p><a href="https://www.ecomlab.in" target="_blank">Ecom Lab</a> — Energy Conversion and Organic Materials Lab<br>Led by Dr. Pradip Pachfule, SNBNCBS</p></div>
+    <div class="contact-card"><h3>Languages</h3><p>English · Bengali · Hindi</p></div>
+  </div>
+</div>
+
+<footer>
+  Bidhan Kumbhakar · Senior Research Fellow · S.N. Bose National Centre for Basic Sciences, Kolkata, India &nbsp;|&nbsp;
+  <a href="mailto:bidhan.kumbhakar@bose.res.in">bidhan.kumbhakar@bose.res.in</a>
+</footer>
+
+</body>
+</html>
